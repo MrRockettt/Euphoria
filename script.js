@@ -1,5 +1,5 @@
 // Home Page Carousel
-var swiper = new Swiper(".swiper-container", {
+var swiper = new Swiper(".swiper-container-1", {
   loop: true,
   autoplay: {
     delay: 3000,
@@ -14,12 +14,29 @@ var swiper = new Swiper(".swiper-container", {
   },
 });
 
+
+  document.addEventListener("DOMContentLoaded", () => {
+    var swiper = new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+      navigation: {
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      },
+      slidesPerView: 4,
+      spaceBetween: 30,
+    });
+  });
+
+
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-button");
   const compNewSectionContent = document.getElementById("comp-new-section-content");
   const inTheLimelightSectionContent = document.getElementById("in-the-limelight-section-content");
-  const feedbackSectionContent = document.getElementById("feedback-section-content"); // New
+  const feedbackSectionContent = document.getElementById("feedback-section-content");
   const wishListCounter = document.getElementById("wishlist-counter");
 
   let wishListCount = 0;
@@ -35,9 +52,9 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       console.log("Data fetched successfully:", data);
       displayData(data);
-      const feedbackCategory = data.find((category) => category.category === "Feedback"); // New
+      const feedbackCategory = data.find((category) => category.category === "Feedback");
       if (feedbackCategory) {
-        displayFeedback(feedbackCategory.items); // New
+        displayFeedback(feedbackCategory.items);
       }
       searchButton.addEventListener("click", () => handleSearch(data));
       searchInput.addEventListener("keypress", (e) => {
@@ -58,7 +75,7 @@ document.addEventListener("DOMContentLoaded", () => {
     data.forEach((category) => {
       if (category.category === "In the Limelight") {
         displayInTheLimelight(category.items);
-      } else if (category.category !== "Feedback") { // Exclude Feedback from general display
+      } else if (category.category !== "Feedback") {
         displayCategory(category);
       }
     });
@@ -151,7 +168,7 @@ document.addEventListener("DOMContentLoaded", () => {
       feedbackRow.appendChild(feedbackCard);
     });
 
-    feedbackSectionContent.appendChild(feedbackRow); // Append feedbackRow to feedbackSectionContent
+    feedbackSectionContent.appendChild(feedbackRow);
   }
 
   function handleLikeButtonClick(button) {
@@ -183,9 +200,9 @@ document.addEventListener("DOMContentLoaded", () => {
 
     if (filteredCategories.length > 0) {
       displayData(filteredCategories);
-      const feedbackCategory = filteredCategories.find((category) => category.category === "Feedback"); // New
+      const feedbackCategory = filteredCategories.find((category) => category.category === "Feedback"); 
       if (feedbackCategory) {
-        displayFeedback(feedbackCategory.items); // New
+        displayFeedback(feedbackCategory.items);
       }
     } else {
       alert("No Stock Found");

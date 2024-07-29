@@ -17,15 +17,9 @@ var swiper = new Swiper(".swiper-container", {
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-button");
-  const compNewSectionContent = document.getElementById(
-    "comp-new-section-content"
-  );
-  const inTheLimelightSectionContent = document.getElementById(
-    "in-the-limelight-section-content"
-  );
-  const feedbackSectionContent = document.getElementById(
-    "feedback-section-content"
-  ); // New
+  const compNewSectionContent = document.getElementById("comp-new-section-content");
+  const inTheLimelightSectionContent = document.getElementById("in-the-limelight-section-content");
+  const feedbackSectionContent = document.getElementById("feedback-section-content"); // New
   const wishListCounter = document.getElementById("wishlist-counter");
 
   let wishListCount = 0;
@@ -41,11 +35,8 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       console.log("Data fetched successfully:", data);
       displayData(data);
-      const feedbackCategory = data.find(
-        (category) => category.category === "Feedback"
-      ); // New
+      const feedbackCategory = data.find((category) => category.category === "Feedback"); // New
       if (feedbackCategory) {
-        // New
         displayFeedback(feedbackCategory.items); // New
       }
       searchButton.addEventListener("click", () => handleSearch(data));
@@ -56,10 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
       });
     })
     .catch((error) => {
-      console.error(
-        "There has been a problem with your fetch operation:",
-        error
-      );
+      console.error("There has been a problem with your fetch operation:", error);
     });
 
   function displayData(data) {
@@ -70,8 +58,7 @@ document.addEventListener("DOMContentLoaded", () => {
     data.forEach((category) => {
       if (category.category === "In the Limelight") {
         displayInTheLimelight(category.items);
-      } else if (category.category !== "Feedback") {
-        // Exclude Feedback from general display
+      } else if (category.category !== "Feedback") { // Exclude Feedback from general display
         displayCategory(category);
       }
     });
@@ -132,9 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
       limelightRow.appendChild(limelightColumn);
 
       const likeButton = limelightColumn.querySelector(".like-button");
-      likeButton.addEventListener("click", () =>
-        handleLikeButtonClick(likeButton)
-      );
+      likeButton.addEventListener("click", () => handleLikeButtonClick(likeButton));
     });
 
     inTheLimelightSectionContent.appendChild(limelightRow);
@@ -154,17 +139,19 @@ document.addEventListener("DOMContentLoaded", () => {
       const feedbackCard = document.createElement("div");
       feedbackCard.className = "feedback-card";
       feedbackCard.innerHTML = `
-      <div class="feedback-con">
-      <div class="feedback-left">
-        <img class="feedback-img" src="${item.img}" alt="${item.title}">
-        <h3>${item.title}</h3>
-        </div>
-        <img class="feedback-ratings" src="${item.ratings}" alt="ratings">
+        <div class="feedback-con">
+          <div class="feedback-left">
+            <img class="feedback-img" src="${item.img}" alt="${item.title}">
+            <h3>${item.title}</h3>
+          </div>
+          <img class="feedback-ratings" src="${item.ratings}" alt="ratings">
         </div>
         <p>${item.content}</p>
       `;
-      feedbackSectionContent.appendChild(feedbackCard);
+      feedbackRow.appendChild(feedbackCard);
     });
+
+    feedbackSectionContent.appendChild(feedbackRow); // Append feedbackRow to feedbackSectionContent
   }
 
   function handleLikeButtonClick(button) {
@@ -182,31 +169,22 @@ document.addEventListener("DOMContentLoaded", () => {
 
   function handleSearch(data) {
     console.log("Handling search for:", searchInput.value);
-    document
-      .getElementById("comp-new-section")
-      .scrollIntoView({ behavior: "smooth" });
+    document.getElementById("comp-new-section").scrollIntoView({ behavior: "smooth" });
 
     const searchTerm = searchInput.value.toLowerCase();
     const filteredData = data.map((category) => {
       return {
         category: category.category,
-        items: category.items.filter((item) =>
-          item.title.toLowerCase().includes(searchTerm)
-        ),
+        items: category.items.filter((item) => item.title.toLowerCase().includes(searchTerm)),
       };
     });
 
-    const filteredCategories = filteredData.filter(
-      (category) => category.items.length > 0
-    );
+    const filteredCategories = filteredData.filter((category) => category.items.length > 0);
 
     if (filteredCategories.length > 0) {
       displayData(filteredCategories);
-      const feedbackCategory = filteredCategories.find(
-        (category) => category.category === "Feedback"
-      ); // New
+      const feedbackCategory = filteredCategories.find((category) => category.category === "Feedback"); // New
       if (feedbackCategory) {
-        // New
         displayFeedback(feedbackCategory.items); // New
       }
     } else {

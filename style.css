@@ -829,10 +829,10 @@ header .nav-middle .shop {
 
   /* Media Query starts here */
 
-   @media only screen and (min-width: 1080px) and (max-width: 1200px){
+  /* @media only screen and (min-width: 1080px) and (max-width: 1200px){
 
     .sec3 .swiper-container .swiper-slide .arrival-images {
 
       width: 200px;
     }
-  } 
+  } */

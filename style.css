@@ -85,6 +85,31 @@ header .nav-middle .shop {
     display: none;
 }
 
+.sec1 .nav-right button{
+  background-color: transparent;
+
+}
+
+.sec1 .nav-right .wishlist-button{
+  position: relative;
+}
+.sec1 .nav-right .wishlist-button .wish-1{
+  position: relative;
+}
+.sec1 .nav-right #wishlist-counter{
+  position: absolute;
+  top:13px;
+  right: 13px;
+  background-color: purple;
+  color: white;
+  border-radius: 50%;
+  padding:4px 6px;
+  font-size: 0.8em;
+  line-height: 1;
+  transform: translate(50%, -50%);
+
+}
+
 .spotlight {
     width: 100%;
     color: white;
@@ -102,7 +127,7 @@ header .nav-middle .shop {
     position: relative;
 }
 
-.swiper-container {
+.swiper-container-1 {
     width: 100%;
     height: 100%;
 }
@@ -217,35 +242,52 @@ header .nav-middle .shop {
     font-size: 20px;
 }
 
+
 .sec3 {
-    width: 100%;
-    padding: 0px 20px 0px 50px;
+  width: 100%;
+  padding: 0px 20px 0px 50px;
 }
 
 .sec3 .arrival {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-    font-weight: 600;
-    font-size: 30px;
-    color: rgba(60, 66, 66, 1);
-
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  font-weight: 600;
+  font-size: 30px;
+  color: rgba(60, 66, 66, 1);
 }
 
-
 .sec3 .arr-colc {
-    display: flex;
-    gap: 6px;
+  display: flex;
+  align-items: center;
+  position: relative;
 }
 
 .sec3 .arr-collection {
-    display: flex;
-    width: 95%;
-    justify-content: space-evenly;
-    padding-top: 20px;
-    font-size: 15px;
-    font-weight: 600;
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  padding-top: 20px;
+  font-size: 15px;
+  font-weight: 600;
 }
+
+.sec3 .swiper-container {
+  width: 100%;
+}
+
+.sec3 .swiper-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sec3 .swiper-button-next,
+.sec3 .swiper-button-prev {
+  color: #000;
+}
+
 
 .sec4 {
     width: 100%;
@@ -529,7 +571,6 @@ header .nav-middle .shop {
   }
   
   .limelight-column a {
-    /* font-size: 14px; */
     color: rgba(127, 127, 127, 1);
     text-decoration: none;
   }
@@ -785,3 +826,13 @@ header .nav-middle .shop {
     margin: 0;
     color: rgba(255, 255, 255, 1);
   }
+
+  /* Media Query starts here */
+
+   @media only screen and (min-width: 1080px) and (max-width: 1200px){
+
+    .sec3 .swiper-container .swiper-slide .arrival-images {
+
+      width: 200px;
+    }
+  } 

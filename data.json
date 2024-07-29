@@ -1,0 +1,42 @@
+[
+  {
+    "category": "Men",
+    "items": [
+      { "img": "images/img-5.jpg", "title": "Shirts", "link": "#" },
+      { "img": "images/img-6.jpg", "title": "Printed T-Shirts", "link": "#" },
+      { "img": "images/img-7.jpg", "title": "Plain T-Shirts", "link": "#" },
+      { "img": "images/img-8.jpg", "title": "Polo T-Shirt", "link": "#" },
+      { "img": "images/img-9.jpg", "title": "Hoodies & Sweetshirt", "link": "#" },
+      { "img": "images/img-10.jpg", "title": "Jeans", "link": "#" },
+      { "img": "images/Rectangle 22.png", "title": "Activewear", "link": "#" },
+      { "img": "images/img-11.jpg", "title": "Boxers", "link": "#" }
+    ]
+  },
+  {
+    "category": "Women",
+    "items": [
+      { "img": "images/img-12.jpg", "title": "Hoodies & Sweetshirt", "link": "#" },
+      { "img": "images/img-13.jpg", "title": "Coats & Parkas", "link": "#" },
+      { "img": "images/img-14.jpg", "title": "Tees & T-Shirt", "link": "#" },
+      { "img": "images/img-15.jpg", "title": "Boxers", "link": "#" }
+    ]
+  },
+  {
+    "category": "In the Limelight",
+    "items": [
+      { "img": "images/gp1.png", "title": "Black Sweatshirt with Enigma", "brand": "Jhanvi's Brand", "price": "$123.00" },
+      { "img": "images/gp2.png", "title": "Line Pattern Black Hoodie", "brand": "AS's Brand", "price": "$37.00" },
+      { "img": "images/gp3.png", "title": "Black Shorts", "brand": "MM's Brand", "price": "$37.00" },
+      { "img": "images/gp4.png", "title": "Lavender Hoodie with Nike", "brand": "Nike's Brand", "price": "$119.00" }
+    ]
+  },
+  {
+    "category": "Feedback",
+    "items": [
+      { "img": "images/Rectangle 729.png", "title": "Floyd Miles", "content": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet", "ratings": "images/Ratings.png" },
+      { "img": "images/boy.png", "title": "Ronald Richards", "content": "ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet", "ratings": "images/Frame 260.png" },
+      { "img": "images/boy1.png", "title": "Savannah Nguyen", "content": "Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet. Amet minim mollit non deserunt ullamco est sit aliqua dolor do amet sint. Velit officia consequat duis enim velit mollit. Exercitation veniam consequat sunt nostrud amet", "ratings": "images/Ratings.png" }
+    ]
+  }
+
+]

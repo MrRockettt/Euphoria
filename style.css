@@ -6,7 +6,6 @@
   box-sizing: border-box;
 }
 
-
 body,
 html {
   font-family: "Poppins";
@@ -194,12 +193,10 @@ header .nav-middle .shop {
   right: 5%;
 }
 
-
 .sec2 {
   width: 100%;
   padding: 50px 50px;
   margin-top: 50px;
-  
 }
 
 .sec2 .lb {
@@ -352,7 +349,6 @@ header .nav-middle .shop {
   font-size: 16px;
   font-weight: 200;
 }
-
 
 .left-top {
   display: flex;
@@ -1061,7 +1057,6 @@ footer {
     width: 100%;
     padding: 20px;
     margin-top: 70px;
-
   }
 
   .sec2 .lowprice .lowprice-content {
@@ -1431,7 +1426,7 @@ footer {
   .footer-column ul li h1 {
     font-size: 25px;
     margin-bottom: 10px;
-}
+  }
 
   .footer-category select {
     padding: 10px;
@@ -1443,21 +1438,17 @@ footer {
   }
 }
 
-@media only screen and (min-width: 360px) and (max-width: 779px){
-
-  .footer-columns .location{
+@media only screen and (min-width: 360px) and (max-width: 779px) {
+  .footer-columns .location {
     display: none;
   }
 }
 
-
 @media only screen and (min-width: 360px) and (max-width: 599px) {
   .sec1 header {
-
     flex-direction: column;
     align-items: flex-start;
-    padding: 5px;
-
+    padding: 5px 15px;
   }
 
   .sec1 header .nav-middle {
@@ -1466,8 +1457,8 @@ footer {
 
   .swiper-button-next,
   .swiper-button-prev {
-    width: 30px !important; 
-    height: 30px !important; 
+    width: 30px !important;
+    height: 30px !important;
   }
 
   .swiper-button-next::after,
@@ -1570,7 +1561,7 @@ footer {
     gap: 20px;
     font-weight: bold;
     font-size: 20px;
-}
+  }
 
   .sec5 {
     padding: 20px;
@@ -1586,7 +1577,7 @@ footer {
     margin: 0px;
     font-weight: bold;
     gap: 20px;
-}
+  }
 
   .comp-row {
     display: flex;
@@ -1601,7 +1592,7 @@ footer {
   .comp-column .product-img {
     border-radius: 10px;
     margin-bottom: 0px;
-}
+  }
 
   .comp-column {
     margin: 0px;
@@ -1614,7 +1605,7 @@ footer {
     bottom: 20px;
     right: 15px;
     font-size: 19px;
-}
+  }
 
   .limelight {
     padding: 20px;
@@ -1627,7 +1618,7 @@ footer {
     margin-bottom: 20px;
     font-weight: bold;
     gap: 20px;
-}
+  }
 
   .limelight-row {
     display: flex;
@@ -1637,11 +1628,11 @@ footer {
     align-items: center;
     justify-content: center;
   }
-  
+
   .limelight-column .product-img {
     border-radius: 10px;
     margin-bottom: 0px;
-}
+  }
 
   .limelight-column {
     flex: 0 0 calc(25% - 20px);
@@ -1732,7 +1723,7 @@ footer {
     justify-content: space-around;
   }
 
-  .footer-columns .need-help{
+  .footer-columns .need-help {
     display: none;
   }
 

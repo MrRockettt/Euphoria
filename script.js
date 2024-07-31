@@ -9,34 +9,61 @@ var swiper = new Swiper(".swiper-container-1", {
     clickable: true,
   },
   navigation: {
-    nextEl: ".swiper-button-next",
-    prevEl: ".swiper-button-prev",
+    nextEl: '.swiper-button-next',
+    prevEl: '.swiper-button-prev',
   },
 });
 
-
-  document.addEventListener("DOMContentLoaded", () => {
-    var swiper = new Swiper('.swiper-container', {
-      loop: true,
-      autoplay: {
-        delay: 3000,
+// Arrival section carousel
+document.addEventListener("DOMContentLoaded", () => {
+  var swiper = new Swiper(".swiper-container", {
+    loop: true,
+    autoplay: {
+      delay: 3000,
+    },
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    slidesPerView: 4,
+    spaceBetween: 30,
+    breakpoints: {
+      360: {
+        slidesPerView: 1,
+        spaceBetween: 10,
       },
-      navigation: {
-        nextEl: '.swiper-button-next',
-        prevEl: '.swiper-button-prev',
+      580: {
+        slidesPerView: 2,
+        spaceBetween: 20,
       },
-      slidesPerView: 4,
-      spaceBetween: 30,
-    });
+      780: {
+        slidesPerView: 3,
+        spaceBetween: 30,
+      },
+      1024: {
+        slidesPerView: 4,
+        spaceBetween: 40,
+      },
+    },
   });
+});
 
-
+// Wishlist increment
 document.addEventListener("DOMContentLoaded", () => {
   const searchInput = document.getElementById("search-input");
   const searchButton = document.getElementById("search-button");
-  const compNewSectionContent = document.getElementById("comp-new-section-content");
-  const inTheLimelightSectionContent = document.getElementById("in-the-limelight-section-content");
-  const feedbackSectionContent = document.getElementById("feedback-section-content");
+  const searchInput1 = document.getElementById("search-input-1");
+  const searchButton1 = document.getElementById("search-button-1");
+
+  const compNewSectionContent = document.getElementById(
+    "comp-new-section-content"
+  );
+  const inTheLimelightSectionContent = document.getElementById(
+    "in-the-limelight-section-content"
+  );
+  const feedbackSectionContent = document.getElementById(
+    "feedback-section-content"
+  );
   const wishListCounter = document.getElementById("wishlist-counter");
 
   let wishListCount = 0;
@@ -52,19 +79,34 @@ document.addEventListener("DOMContentLoaded", () => {
     .then((data) => {
       console.log("Data fetched successfully:", data);
       displayData(data);
-      const feedbackCategory = data.find((category) => category.category === "Feedback");
+      const feedbackCategory = data.find(
+        (category) => category.category === "Feedback"
+      );
       if (feedbackCategory) {
         displayFeedback(feedbackCategory.items);
       }
-      searchButton.addEventListener("click", () => handleSearch(data));
+      searchButton.addEventListener("click", () =>
+        handleSearch(data, searchInput)
+      );
+      searchButton1.addEventListener("click", () =>
+        handleSearch(data, searchInput1)
+      );
       searchInput.addEventListener("keypress", (e) => {
         if (e.key === "Enter") {
-          handleSearch(data);
+          handleSearch(data, searchInput);
+        }
+      });
+      searchInput1.addEventListener("keypress", (e) => {
+        if (e.key === "Enter") {
+          handleSearch(data, searchInput1);
         }
       });
     })
     .catch((error) => {
-      console.error("There has been a problem with your fetch operation:", error);
+      console.error(
+        "There has been a problem with your fetch operation:",
+        error
+      );
     });
 
   function displayData(data) {
@@ -136,7 +178,9 @@ document.addEventListener("DOMContentLoaded", () => {
       limelightRow.appendChild(limelightColumn);
 
       const likeButton = limelightColumn.querySelector(".like-button");
-      likeButton.addEventListener("click", () => handleLikeButtonClick(likeButton));
+      likeButton.addEventListener("click", () =>
+        handleLikeButtonClick(likeButton)
+      );
     });
 
     inTheLimelightSectionContent.appendChild(limelightRow);
@@ -184,23 +228,37 @@ document.addEventListener("DOMContentLoaded", () => {
     wishListCounter.textContent = wishListCount;
   }
 
-  function handleSearch(data) {
+  function handleSearch(data, searchInput) {
     console.log("Handling search for:", searchInput.value);
-    document.getElementById("comp-new-section").scrollIntoView({ behavior: "smooth" });
+    document
+      .getElementById("comp-new-section")
+      .scrollIntoView({ behavior: "smooth" });
 
     const searchTerm = searchInput.value.toLowerCase();
+
+    if (searchTerm === "") {
+      displayData(data);
+      return;
+    }
+
     const filteredData = data.map((category) => {
       return {
         category: category.category,
-        items: category.items.filter((item) => item.title.toLowerCase().includes(searchTerm)),
+        items: category.items.filter((item) =>
+          item.title.toLowerCase().includes(searchTerm)
+        ),
       };
     });
 
-    const filteredCategories = filteredData.filter((category) => category.items.length > 0);
+    const filteredCategories = filteredData.filter(
+      (category) => category.items.length > 0
+    );
 
     if (filteredCategories.length > 0) {
       displayData(filteredCategories);
-      const feedbackCategory = filteredCategories.find((category) => category.category === "Feedback"); 
+      const feedbackCategory = filteredCategories.find(
+        (category) => category.category === "Feedback"
+      );
       if (feedbackCategory) {
         displayFeedback(feedbackCategory.items);
       }
@@ -208,4 +266,16 @@ document.addEventListener("DOMContentLoaded", () => {
       alert("No Stock Found");
     }
   }
+});
+
+// Responsive menu section
+document.addEventListener("DOMContentLoaded", function () {
+  const menuButton = document.querySelector(".tooglr .menu-btn");
+  const navMiddle = document.querySelector(".nav-middle");
+  const navRight = document.querySelector(".nav-right");
+
+  menuButton.addEventListener("click", function () {
+    navMiddle.classList.toggle("active");
+    navRight.classList.toggle("active");
+  });
 });

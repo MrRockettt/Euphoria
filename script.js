@@ -1,19 +1,3 @@
-// Home Page Carousel
-var swiper = new Swiper(".swiper-container-1", {
-  loop: true,
-  autoplay: {
-    delay: 3000,
-  },
-  pagination: {
-    el: ".swiper-pagination",
-    clickable: true,
-  },
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev',
-  },
-});
-
 // Arrival section carousel
 document.addEventListener("DOMContentLoaded", () => {
   var swiper = new Swiper(".swiper-container", {
